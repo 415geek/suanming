@@ -1,5 +1,4 @@
 import json
-req.from_json_string(json.dumps(params))
 from tencentcloud.common import credential
 from tencentcloud.common.exception.tencent_cloud_sdk_exception import TencentCloudSDKException
 from tencentcloud.common.profile.client_profile import ClientProfile
@@ -24,7 +23,8 @@ def ask_chatglm(prompt, secret_id, secret_key, model="chatglm3-6b"):
             "MaxTokens": 2048,
             "Temperature": 0.7
         }
-        req.from_json_string(str(params))
+    
+        req.from_json_string(json.dumps(params))
         resp = client.ChatCompletions(req)
 
         return resp.Choices[0].Message.Content
