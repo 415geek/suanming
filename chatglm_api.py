@@ -16,17 +16,14 @@ def ask_chatglm(prompt, secret_id, secret_key, model="chatglm3-6b"):
 
         client = hunyuan_client.HunyuanClient(cred, "ap-beijing", clientProfile)
 
-        req = models.ChatCompletionsRequest()
+        req = models.ChatStdRequest()
         params = {
             "Model": model,
-            "Messages": [{"Role": "user", "Content": prompt}],
-            "MaxTokens": 2048,
-            "Temperature": 0.7
+            "Messages": [{"Role": "user", "Content": prompt}]
         }
-    
         req.from_json_string(json.dumps(params))
-        resp = client.ChatCompletions(req)
 
+        resp = client.ChatStd(req)
         return resp.Choices[0].Message.Content
 
     except TencentCloudSDKException as err:
