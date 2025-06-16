@@ -1,3 +1,5 @@
+import json
+req.from_json_string(json.dumps(params))
 from tencentcloud.common import credential
 from tencentcloud.common.exception.tencent_cloud_sdk_exception import TencentCloudSDKException
 from tencentcloud.common.profile.client_profile import ClientProfile
