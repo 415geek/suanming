@@ -2,9 +2,14 @@
 import streamlit as st
 from chatglm_api import ask_chatglm
 import datetime
+# 在界面最顶部，引入 webbrowser 模块
+import streamlit as st
+import webbrowser
 
-st.set_page_config(page_title="🔮 AI 命理大师", layout="centered")
-st.title("🧙‍♂️ AI 命理大师（八字 + 紫微斗数 + Turbo S）")
+if st.button("⭐ 访问我的 LinkedIn 个人主页"):
+    webbrowser.open_new_tab("https://www.linkedin.com/in/lingyu-maxwell-lai")
+    st.set_page_config(page_title="🔮 AI大模型 命理大师", layout="centered")
+st.title("AI大模型 命理大师（By c8geek）")
 
 name = st.text_input("姓名")
 gender = st.radio("性别", ["男", "女"])
