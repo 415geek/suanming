@@ -1,2 +1,2 @@
 streamlit
-tencentcloud-sdk-python
+tencentcloud-sdk-python-hunyuan
